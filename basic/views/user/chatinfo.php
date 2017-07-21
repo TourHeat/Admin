@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 ?>
+
 <div class="right_col" role="main">
 					<div class="">
 						<div class="page-title">
@@ -29,26 +30,30 @@ use yii\helpers\Url;
 										<table id="datatable" class="table table-striped table-bordered">
 					                      <thead>
 					                        <tr>		
-                                                <th>用户名</th>			                          	
-												<th>密码</th>
-												<th>电话号码</th>
-												<th>身份</th>
+                                                <th>发送用户</th>			                          	
+												<th>接收用户</th>
+												<th>内容</th>
+												<th>图像链接</th>
+                                                <th>信息类型</th>
+                                                <th>发送时间</th>  
                                                 <th>操作</th>                                                
 					                        </tr>
 					                      </thead>					
 					
 					                      <tbody>
 											<?php
-												foreach($users_data as $value){
+												foreach($chat_info as $value){
 											?>
 													<tr>
-														<th><?=$value['username']?></th>
-														<th><?=$value['password']?></th>
-														<th><?=$value['phone']?></th>
-														<th><?=$value['identify']?></th>
+														<th><?=$value['from_userid']?></th>
+														<th><?=$value['to_userid']?></th>
+														<th><?=$value['content']?></th>
+                                                        <th><?=$value['imgurl']?></th>
+                                                        <th><?=$value['type']?></th>
+                                                        <th><?=$value['chatdate']?></th>
 														<th style="text-align:center;">
-															<a href=<?=Url::to(['user/delete','id'=>$value['id']]);?>>删除</a>
-															<a href=<?=Url::to(['user/update','id'=>$value['id']]);?>>修改</a>																																
+															<a href=<?=Url::to(['user/deletechat','id'=>$value['id']]);?>>删除</a>
+															<a href=<?=Url::to(['user/updatechat','id'=>$value['id']]);?>>修改</a>																																
 														</th>
 													</tr>
 											<?php

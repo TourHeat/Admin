@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,17 +60,19 @@
 								<ul class="nav side-menu">
 									<li><a><i class="fa fa-home"></i> 用户信息管理 <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="http://127.0.0.1/basic/web/index.php?r=user/index">用户基本信息</a></li>											
+											<li><a href=<?=Url::to(['user/index']);?>>用户基本信息</a></li>
+											<li><a href=<?=Url::to(['user/chatinfo']);?>>用户聊天信息</a></li>	
+											<li><a href=<?=Url::to(['user/userarea']);?>>用户数据分布</a></li>																					
 										</ul>
 									</li>
 									<li><a><i class="fa fa-edit"></i> 统计数据查询 <span class="fa fa-chevron-down"></span></a>
 										<ul class="nav child_menu">
-											<li><a href="http://127.0.0.1/basic/web/index.php?r=home/index">系统数据列表</a></li>
-											<li><a href="http://127.0.0.1/basic/web/index.php?r=home/chart">实时在线人数</a></li>
-											<li><a href="http://127.0.0.1/basic/web/index.php?r=home/chart">后台数据分析</a></li>										
+											<li><a href=<?=Url::to(['home/index']);?>>系统数据列表</a></li>
+											<li><a href=<?=Url::to(['home/chart']);?>>实时在线人数</a></li>
+											<li><a href=<?=Url::to(['home/dataanalyse']);?>>后台数据分析</a></li>										
 										</ul>
 									</li>
-									<li><a href="http://127.0.0.1/basic/web/index.php?r=home/pushed"><i class="fa fa-home"></i> 系统推送 <span class="fa"></span></a></li>
+									<li><a href=<?=Url::to(['home/pushed']);?>><i class="fa fa-home"></i> 系统推送 <span class="fa"></span></a></li>
 								</ul>
 							</div>
 

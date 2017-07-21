@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>途聆对讲移动应用后台管理系统</title>
+
+		<!-- Bootstrap -->
+		<link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<!-- NProgress -->
+		<link href="./vendors/nprogress/nprogress.css" rel="stylesheet">
+		<!-- bootstrap-daterangepicker -->
+        <link href="./vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+		<!-- Custom Theme Style -->
+		<link href="./build/css/custom.min.css" rel="stylesheet">		
+		<!-- Datatables -->
+	    <link href="./vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	    <link href="./vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+		<style>
+			tr{
+				cursor: pointer;
+			}
+		</style>
+
+	</head>
+
+	<body class="nav-md">
+		<div class="container body">
+			<div class="main_container">
+				<div class="col-md-3 left_col">
+					<div class="left_col scroll-view">
+						<div class="navbar nav_title" style="border: 0;">
+							<a href="index.html" class="site_title"><span>管理系统</span></a>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<!-- menu profile quick info -->
+						<div class="profile">
+							<div class="profile_pic">
+								<img src="img/a.png" alt="..." class="img-circle profile_img">
+							</div>
+							<div class="profile_info">
+								<span>欢迎,管理员</span>
+								<h2 id="username"></h2>
+							</div>
+						</div>
+						<!-- /menu profile quick info -->
+
+						<br />
+
+						<!-- sidebar menu -->
+						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+							<div class="menu_section">
+								<h3>您的头像</h3>
+								<ul class="nav side-menu">
+									
+								</ul>
+							</div>
+
+						</div>
+						<!-- /sidebar menu -->
+					</div>
+				</div>
+
+				<!-- top navigation -->
+				<div class="top_nav">
+					<div class="nav_menu">
+						<nav>
+							<div class="nav toggle">
+								<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+							</div>
+
+							<ul class="nav navbar-nav navbar-right">
+								<li class="">
+									<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										<img src="img/a.png" alt="">操作
+										<span class=" fa fa-angle-down"></span>
+									</a>
+									<ul class="dropdown-menu dropdown-usermenu pull-right">
+										<li>
+											<a href="javascript:;">帮助</a>
+										</li>
+										<li>
+											<a href="login.html"><i class="fa fa-sign-out pull-right"></i> 登出</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<!-- /top navigation -->
+
+				<!-- page content -->
+				<div class="right_col" role="main">
+					<div class="">
+						<div class="page-title">
+							<div class="title_left">
+								<h3> </h3>
+							</div>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<div class="row">
+							
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="x_panel">
+									<div class="x_title">
+										<h2 id="page">在线人数实时统计</h2>
+										<ul class="nav navbar-right panel_toolbox">
+											<li>
+												<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+											</li>
+										</ul>
+										<div class="clearfix"></div>
+									</div>
+									<div class="x_content">																																															
+										
+										<div id="myChart" style="width: 100%;height: 500px;margin: 0 auto;"></div>
+
+									</div>
+								</div>
+							</div>							
+							
+						</div>
+					</div>
+				</div>
+				<!-- /page content -->
+
+				<!-- footer content -->
+				<footer>
+					<div class="pull-right">
+						<a href="http://dean.swjtu.edu.cn/" target="_blank">西南交通大学官网</a>
+					</div>
+					<div class="clearfix"></div>
+				</footer>
+				<!-- /footer content -->
+			</div>
+		</div>
+
+		<!-- jQuery -->
+		<script src="./vendors/jquery/dist/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- FastClick -->
+		<script src="vendors/fastclick/lib/fastclick.js"></script>
+		
+		<script src="vendors/moment/min/moment.min.js"></script>
+		<script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+		<!-- NProgress -->
+		<script src="vendors/nprogress/nprogress.js"></script>			
+		<!-- Datatables -->
+	    <script src="./vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+	    <script src="./vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+	    
+	    <script src="./build/js/custom.min.js"></script>
+	    
+	    <script src="./vendors/jszip/dist/jszip.min.js"></script>
+	    <script src="js/echarts.min.js"></script>
+		<script>
+	      $(document).ready(function() {	        
+		    var datatable;
+	      });	      	     
+	    </script>
+		
+		<script>																																																										
+			
+			var fuck = [];
+			for(var i = 0; i < 15; i ++){
+				fuck.push(Math.floor(Math.random()*3000));
+			}			
+			var myDate = [];
+			var myHours = (new Date()).getHours();
+			var myMinutes = (new Date()).getMinutes();
+			var mySeconds = (new Date()).getSeconds();
+			for(var i = 0; i < 15; i ++){
+				var code = 0;
+				var code1 = 0;
+				if(mySeconds < 1){
+					mySeconds = mySeconds + 60 - 2;
+					code = 1;
+				}else{
+					mySeconds -= 2;
+				}
+				if(code == 1){
+					if(myMinutes == 0){
+						myMinutes = 59;
+						code1 = 1;
+					}						
+					else
+						myMinutes -= 1;
+				}
+				if(code1 == 1){
+					if(myHours == 0){
+						myHours = 23;						
+					}						
+					else
+						myHours -= 1;
+				}
+				var str = myHours + ':' + myMinutes + ':' + mySeconds;				
+				myDate.unshift(str);
+			}
+			
+			var myChart = echarts.init(document.getElementById('myChart'));
+			myChart.setOption({
+                title : {
+                    text : '在线人数实时统计'
+                },
+                tooltip : {},
+                legend : {
+                    data : ['在线人数']
+                },
+                xAxis: {   
+                    name : '时间',                 
+                    data: myDate
+                },
+                yAxis: {
+                    name : '在线人数'
+                },
+                series: [{
+                    name: '在线人数',
+                    type: 'line',
+                    data: fuck
+                }]
+            });
+			
+			$(document).ready(function(){
+				dealData();	
+				var username = localStorage.getItem('username');
+				$('#username').text(username);
+				$.post('./script/interface.php',{'request':'getRights','username':username},function(data){
+					data = JSON.parse(data);
+					if(data.status == true){
+						try{
+							if(data.data[0]){
+								var i = 0;
+								var Module = data.data[0].Module;
+								var str = `<li>
+											<a><i class="fa fa-desktop"></i> `+ Module +` <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu">`;
+								while(data.data[i]){
+									if(data.data[i].Module == Module){
+										str = str + `<li class=`+data.data[i].W_name+`>
+													<a href="`+data.data[i].W_name+`.html">`+data.data[i].rightName+`</a>
+												</li>`;
+									}else{
+										str = str + `</ul>
+										</li>`;									
+										$('.side-menu').append(str);
+										Module = data.data[i].Module;
+										str = `<li>
+											<a><i class="fa fa-desktop"></i> `+ Module +` <span class="fa fa-chevron-down"></span></a>
+											<ul class="nav child_menu">`;
+										str = str + `<li class=`+data.data[i].W_name+`>
+													<a href="`+data.data[i].W_name+`.html">`+data.data[i].rightName+`</a>
+												</li>`;
+									}	
+									i++;
+								}
+								str = str + `</ul>
+										</li>`;
+										$('.side-menu').append(str);
+								$.getScript('build/js/custom.min.js');
+								$.getScript('js/myClickFunction.js');
+							}else{
+								$.getScript('build/js/custom.min.js');
+								$.getScript('js/myClickFunction.js');
+							}
+							
+						}catch(e){
+
+						}						
+					}else{
+						$.getScript('build/js/custom.min.js');
+						$.getScript('js/myClickFunction.js');
+					}
+				});
+			});
+			
+			function dealData(){
+				setInterval(function(){
+					fuck.shift();
+					myHours = (new Date()).getHours();
+					myMinutes = (new Date()).getMinutes();
+					mySeconds = (new Date()).getSeconds();
+					myDate.shift();				
+					var str = myHours + ':' + myMinutes + ':' + mySeconds;	
+					fuck.push(Math.floor(Math.random()*3000));	
+					myDate.push(str)
+					myChart.setOption({
+					    series : [{
+					        name : '库存数',
+					        data : fuck	
+					    }],
+					    xAxis: {   
+		                    name : '时间',                 
+		                    data: myDate
+		              },		               
+					})
+				},2000);
+			}																														
+			
+		</script>
+
+	</body>
+
+</html>

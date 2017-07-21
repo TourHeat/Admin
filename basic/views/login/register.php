@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Url;
+?>
+
 <!DOCTYPE html>
 <html lang="zh-CN" class="no-js">
 
@@ -43,7 +47,7 @@
 							username = document.getElementById('username').value;
                             phone = document.getElementById('phone').value;
 							password = md5(document.getElementById('password').value);														
-							$.post('http://127.0.0.1/basic/web/index.php?r=login/registercheck',
+							$.post('<?=Url::to(['login/registercheck']);?>',
 								{
 									_username : username,
 									_password : password,
@@ -54,7 +58,7 @@
 									data = JSON.parse(data);
 									if(data.status == 0){								
                                         alert('注册成功！');									
-										location.href = 'http://127.0.0.1/basic/web/index.php?r=login/index';
+										location.href = '<?=Url::to(['login/index']);?>';
 									}else if(data.status == 1){										
 										alert('用户名、电话重复或不符合规范!');
 									}

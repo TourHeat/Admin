@@ -21,4 +21,8 @@ class HomeController extends CommonController{
         return $this->render('pushed');
     }
 
+    public function actionDataanalyse(){
+        return $this->render('dataanalyse');
+    }
+
 }

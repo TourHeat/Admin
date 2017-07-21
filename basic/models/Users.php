@@ -39,10 +39,6 @@ class Users extends ActiveRecord{
         }
     }
 
-    public function saveUser($username,$password){
-
-    }
-
     public function rules(){
         return [
             [['username','password'],'required'],
