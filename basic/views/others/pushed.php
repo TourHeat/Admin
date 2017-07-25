@@ -36,8 +36,8 @@
 												<div class="col-md-7">
 													<textarea id="text" maxlength="255" class="form-control" placeholder="内容" rows="5" cols="20"></textarea>
 												</div>
-                                            </div>
-
+											</div>
+											
 											<div class="form-group" id="area_div">
                                                 <label class="col-md-3 control-label">范围</label>
 												<div class="col-md-3">

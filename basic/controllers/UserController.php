@@ -46,4 +46,8 @@ class UserController extends CommonController{
         return $this->render('userarea');
     }
 
+    public function actionUserregister(){
+        return $this->render('userregister');
+    }
+
 }

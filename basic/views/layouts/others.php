@@ -57,23 +57,10 @@ use yii\helpers\Url;
 						<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 							<div class="menu_section">
 								<h3>您的头像</h3>
-								<ul class="nav side-menu">
-									<li><a><i class="fa fa-home"></i> 用户信息管理 <span class="fa fa-chevron-down"></span></a> 	 
-										<ul class="nav child_menu">
-											<li><a href="<?=Url::to(['user/index']);?>">用户基本信息</a></li>
-											<li><a href=<?=Url::to(['user/chatinfo']);?>>用户聊天信息</a></li>
-											<li><a href=<?=Url::to(['user/userregister']);?>>用户注册分布</a></li>	
-											<li><a href=<?=Url::to(['user/userarea']);?>>用户在线分布</a></li>																					
-										</ul>
-									</li>
-									<li><a><i class="fa fa-edit"></i> 统计数据查询 <span class="fa fa-chevron-down"></span></a>
-										<ul class="nav child_menu">
-											<li><a href=<?=Url::to(['home/index']);?>>系统数据列表</a></li>
-											<li><a href=<?=Url::to(['home/chart']);?>>实时在线人数</a></li>
-											<li><a href=<?=Url::to(['home/dataanalyse']);?>>后台数据分析</a></li>										
-										</ul>
-									</li>
-									<li><a href=<?=Url::to(['home/pushed']);?>><i class="fa fa-home"></i> 系统推送 <span class="fa"></span></a></li>
+								<ul class="nav side-menu">																		
+									<li><a href=<?=Url::to(['others/chart']);?>><i class="fa fa-edit"></i> 实时在线人数 <span class="fa"></span></a></li>
+									<li><a href=<?=Url::to(['others/chart']);?>><i class="fa fa-home"></i> 后台数据分析 <span class="fa"></span></a></li>
+									<li><a href=<?=Url::to(['others/index']);?>><i class="fa fa-home"></i> 系统推送 <span class="fa"></span></a></li>
 								</ul>
 							</div>
 
@@ -143,6 +130,7 @@ use yii\helpers\Url;
 	    <script src="../userapp/vendors/jszip/dist/jszip.min.js"></script>
 		<script>
 			document.getElementById('username').innerText = localStorage.getItem('username');
+
 		</script>
 		
 		<?php if(isset($this->blocks['myJs'])):?>
