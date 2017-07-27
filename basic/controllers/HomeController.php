@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 use yii\web\Controller;
+use yii\helpers\Url;
 
 class HomeController extends CommonController{
 
@@ -23,6 +24,10 @@ class HomeController extends CommonController{
 
     public function actionDataanalyse(){
         return $this->render('dataanalyse');
+    }
+
+    public function actionBackup(){
+        return $this->redirect('http://127.0.0.1/phpmyadmin/index.php');
     }
 
 }

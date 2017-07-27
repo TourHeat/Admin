@@ -74,6 +74,7 @@ use yii\helpers\Url;
 										</ul>
 									</li>
 									<li><a href=<?=Url::to(['home/pushed']);?>><i class="fa fa-home"></i> 系统推送 <span class="fa"></span></a></li>
+									<li><a href=<?=Url::to(['home/backup']);?>><i class="fa fa-home"></i> 数据备份与恢复 <span class="fa"></span></a></li>
 								</ul>
 							</div>
 
